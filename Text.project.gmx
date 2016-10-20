@@ -37,11 +37,17 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\How_To_Make_a_New_Chapter.gml</script>
+    <scripts name="ChapterExamples">
+      <script>scripts\chIntroduction.gml</script>
+      <script>scripts\initChPart.gml</script>
+      <script>scripts\chPart1.gml</script>
+      <script>scripts\chPart2.gml</script>
+      <script>scripts\chBackground.gml</script>
+    </scripts>
     <scripts name="Chapter1">
       <script>scripts\ch1Introduction.gml</script>
       <script>scripts\initCh1Part1.gml</script>
       <script>scripts\ch1Part1.gml</script>
-      <script>scripts\switchToPart.gml</script>
       <script>scripts\initCh1Part2.gml</script>
       <script>scripts\ch1Part2.gml</script>
       <script>scripts\ch1Background.gml</script>
@@ -71,12 +77,13 @@
       </scripts>
       <scripts name="Functions">
         <script>scripts\draw_text_colortags.gml</script>
+        <script>scripts\switchToPart.gml</script>
+        <script>scripts\evidencePicker.gml</script>
+        <script>scripts\saveGame.gml</script>
+        <script>scripts\loadGame.gml</script>
+        <script>scripts\continueGame.gml</script>
       </scripts>
       <script>scripts\globalInit.gml</script>
-      <script>scripts\saveGame.gml</script>
-      <script>scripts\loadGame.gml</script>
-      <script>scripts\continueGame.gml</script>
-      <script>scripts\evidencePicker.gml</script>
       <script>scripts\evidenceList.gml</script>
     </scripts>
   </scripts>
@@ -84,11 +91,6 @@
     <font>fonts\centFont</font>
   </fonts>
   <objects name="objects">
-    <object>objects\messageLogObj</object>
-    <object>objects\textBoxObj</object>
-    <object>objects\evidencePickerObj</object>
-    <object>objects\evidenceTextObj</object>
-    <object>objects\evidenceBackObj</object>
     <objects name="Chapter1">
       <object>objects\chapter1IntroObj</object>
       <object>objects\chapter1Part1Obj</object>
@@ -101,16 +103,23 @@
       <object>objects\chapter2BackgroundObj</object>
     </objects>
     <objects name="Menu">
-      <object>objects\globalInitObj</object>
       <object>objects\newGameObj</object>
       <object>objects\continueGameObj</object>
       <object>objects\exitObj</object>
       <object>objects\saveObj</object>
       <object>objects\menuObj</object>
-      <object>objects\transitionNextObj</object>
-      <object>objects\transitionSpecificObj</object>
-      <object>objects\transitionReceiveObj</object>
+    </objects>
+    <objects name="Functional">
+      <object>objects\globalInitObj</object>
       <object>objects\transitionEnterMenuObj</object>
+      <object>objects\transitionReceiveObj</object>
+      <object>objects\transitionSpecificObj</object>
+      <object>objects\transitionNextObj</object>
+      <object>objects\messageLogObj</object>
+      <object>objects\evidencePickerObj</object>
+      <object>objects\evidenceTextObj</object>
+      <object>objects\evidenceBackObj</object>
+      <object>objects\textBoxObj</object>
     </objects>
   </objects>
   <rooms name="rooms">
