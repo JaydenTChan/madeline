@@ -7,7 +7,9 @@ if (global.cont == 1){
     global.intro = 1; //Introduction is still underway
 }
 
-// Edit for each chapter starting here
+//==== Edit for each chapter starting here ====//
+// Audio to play place here
+audio_play_sound(isolationSnd, 1, 1);
 
 //write your messages in an array, starting at 0, like so
 message[0] = "It's been 2 years...";

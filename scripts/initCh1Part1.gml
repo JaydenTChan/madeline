@@ -7,6 +7,8 @@ Use this script to initialize any variables that are relevant to this chapter/pa
 Summary: Finding out basic controls
 */
 
+audio_stop_all(); //Stop all sounds from the introduction
+
 if (global.cont == 1){
     if(global.part = 2){
         switchToPart(chapter1Part2Obj);
