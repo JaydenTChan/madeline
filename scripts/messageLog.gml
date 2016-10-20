@@ -15,6 +15,7 @@ if (keyboard_check_pressed(vk_anykey) == true)
         textBoxObj.txt = "";
         textBoxObj.keyboard_string = "";
         global.timer += 1;
+        offset = 0; //Bring the message log back down to the most recent when the plyer uses an action.
         break;
     }
 }

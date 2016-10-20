@@ -9,7 +9,10 @@ switch(global.chapter){
     case 1:
         ic = instance_create(x,y,transitionSpecificObj);
         ic.rm = chapter1Rm;
+        break;
     case 2:
+        ic = instance_create(x,y,transitionSpecificObj);
+        ic.rm = chapter2Rm;
         break;
     default:
         break;
