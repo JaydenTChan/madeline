@@ -20,8 +20,9 @@ if (str != ""){ ds_list_read(global.actions, str);}
 str = ini_read_string("Log", "log", "");
 if (str != ""){ ds_list_read(global.log, str);}
 
-
 // Settings
+global.img = ini_read_real("Settings", "img", 0);
+global.size = ini_read_real("Settings", "size", 0);
 
 ini_close();
 

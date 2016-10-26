@@ -1,6 +1,7 @@
 //This is where the background images will change.
 //Make sure there's a case for each part/state in the chapter
 
+if(global.img != 1){ draw_sprite(blackSpr,0,x,y); }else{
 switch(global.part){
     //Which part in the chapter?
     case 1:
@@ -39,4 +40,5 @@ switch(global.part){
                 break;                                       
         }
         break;
-}
+}//End Switch
+}//End Else
