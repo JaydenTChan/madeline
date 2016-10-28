@@ -8,10 +8,6 @@
     <sound>sound\isolationSnd</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\textBoxSpr</sprite>
-    <sprite>sprites\pickSpr</sprite>
-    <sprite>sprites\introBackSpr</sprite>
-    <sprite>sprites\messageLogSpr</sprite>
     <sprites name="Menu">
       <sprite>sprites\newGameSpr</sprite>
       <sprite>sprites\continueSpr</sprite>
@@ -19,6 +15,8 @@
       <sprite>sprites\continueGreySpr</sprite>
       <sprite>sprites\exitSpr</sprite>
       <sprite>sprites\menuSpr</sprite>
+      <sprite>sprites\imgSpr</sprite>
+      <sprite>sprites\sizeSpr</sprite>
     </sprites>
     <sprites name="Chapter 1">
       <sprite>sprites\playerRoomSpr</sprite>
@@ -31,7 +29,15 @@
     <sprites name="Chapter2">
       <sprite>sprites\classroomSpr</sprite>
     </sprites>
-    <sprite>sprites\darkenScreenSpr</sprite>
+    <sprites name="GUI">
+      <sprite>sprites\textBoxSpr</sprite>
+      <sprite>sprites\pickSpr</sprite>
+      <sprite>sprites\introBackSpr</sprite>
+      <sprite>sprites\messageLogSpr</sprite>
+      <sprite>sprites\messageLogBigSpr</sprite>
+      <sprite>sprites\darkenScreenSpr</sprite>
+      <sprite>sprites\blackSpr</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -110,6 +116,8 @@
       <object>objects\continueGameObj</object>
       <object>objects\exitObj</object>
       <object>objects\saveObj</object>
+      <object>objects\imgObj</object>
+      <object>objects\sizeObj</object>
       <object>objects\menuObj</object>
     </objects>
     <objects name="Functional">
@@ -121,8 +129,8 @@
       <object>objects\messageLogObj</object>
       <object>objects\evidencePickerObj</object>
       <object>objects\evidenceTextObj</object>
-      <object>objects\evidenceBackObj</object>
       <object>objects\textBoxObj</object>
+      <object>objects\evidenceBackObj</object>
     </objects>
   </objects>
   <rooms name="rooms">

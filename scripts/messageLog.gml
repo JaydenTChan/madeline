@@ -1,3 +1,11 @@
+if (global.size == 1){
+    length = 31;
+    y = 16;
+}else{
+    length = 9;
+    y = 496;
+}
+
 if (keyboard_check_pressed(vk_anykey) == true)
 {
     switch (keyboard_key)

@@ -21,6 +21,8 @@ str = ds_list_write(global.log);
 ini_write_string("Log", "log", str);
 
 // Settings
+ini_write_real("Settings", "img", global.img);
+ini_write_real("Settings", "size", global.size);
 
 //Write to message log
 ds_list_add(global.log, "[c="+string($00FFFF)+"]Game saved.[/c]");

@@ -1,7 +1,9 @@
 if(global.intro == 0){
     //Only draw when introduction is over.
     var i, n, line = "";
-    draw_sprite(messageLogSpr, 0, x, y);
+    if (global.size == 0){draw_sprite(messageLogSpr, 0, x, y);}else{
+    draw_sprite(messageLogBigSpr, 0, x, y);
+    }
     draw_set_colour(c_white);
     for (i = 0; i < min(ds_list_size(global.log), length); i++)
     {
