@@ -86,6 +86,9 @@
       <script>scripts\globalInit.gml</script>
       <script>scripts\evidenceList.gml</script>
     </scripts>
+    <scripts name="There’s Something Strange About Michael ">
+      <script>scripts\ch2Intro.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\centFont</font>
@@ -125,6 +128,7 @@
   <rooms name="rooms">
     <room>rooms\Title</room>
     <room>rooms\chapter1Rm</room>
+    <room>rooms\room3</room>
     <room>rooms\chapter2Rm</room>
   </rooms>
   <help>
