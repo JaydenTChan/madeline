@@ -35,14 +35,20 @@ We may also determine their inventory.
 Also take note of what each state means in a comment.
 
 States:
-0 = player is in their classroom.
+0 = INPUT 1
+1 = INPUT 2
+2 = INPUT 5 (INPUT 3 AND 4 CAN BE FUSED TOGETHER)
+3 = INPUT 6
 
 */
 
 LA = string_lower(global.lastAction);
-door = false; //DOOR INPUT 1
-founddoor = false; //FOUND DOOR INPUT 2
-climb = false; //CLIMB INPUT 5
+door = false;       //DOOR INPUT 1
+founddoor = false;  //FOUND DOOR INPUT 2
+climb = false;      //CLIMB INPUT 5
+question = false;   //QUESTION ABOUT NOT GOOD PEOPLE INPUT 8(1)
+fort = false;       //GO TO FORT 9(1)
+enableneighbor = false; //ENABLE TO GO TO NEIGHBOUR 9(2)
 switch(global.state){
     case 0: //INPUT 1
         if(LA == "look around"||LA == "look"){
@@ -122,21 +128,49 @@ switch(global.state){
         if(LA == "look around"||LA == "look"){
             ds_list_add(global.log, "The voice came from Madeline.");
         }else if(LA == "leave her" || LA == "leave Madeline"){
+            //Does nothing so far? there no 7(2) written
+        }else if(LA== "take her"||LA=="take Madeline"){
             ds_list_add(global.log, "You and Madeline escape out the window.");
             ds_list_add(global.log, "You are now in your backyard.");
             ds_list_add(global.log, "The light of the house next door is on and you can see that they are awake in their living room.");
-            //JUMP TO THE NEXT CASE
-            
-        }else if(LA== "take her"||LA=="take Madeline"){
-            ds_list_add(global.log, "You’re moving towards your neighbours house when you feel a sharp tug on your shirt.");
-            ds_list_add(global.log, "“We can’t go there Mikey.”");
-            //"good people" is suppose to be in red
-            ds_list_add(global.log, "They’re not good people.");
             //JUMP TO THE NEXT CASE
         }else {
             global.needsHelp += 1;
             if(global.needsHelp == 5){
                 ds_list_add(global.log, "Do I take her with me or leave her?");
+            }
+        }
+        break;
+    case 4: //INPUT 7
+        if(LA == "look around"||LA == "look"){
+            ds_list_add(global.log, "It is the middle of the night.");
+            ds_list_add(global.log, "The only thing you can see is the neighbour’s house.");
+        }else if(LA == "go neightbour's house" || LA == "go to neightbour's house"){
+            if(question){
+                //GO to 9(2)
+            } else {
+                ds_list_add(global.log, "You’re moving towards your neighbours house when you feel a sharp tug on your shirt.");
+                ds_list_add(global.log, "“We can’t go there Mikey.”");
+                //"good people" is suppose to be in red
+                ds_list_add(global.log, "They’re not good people.");
+                question = true;
+            }  
+        }else if(question&&(LA== "ask not good people"||LA=="ask about not good people")){
+            ds_list_add(global.log, "“They told us that we weren’t their problem.“");
+            ds_list_add(global.log, "“Can we go to the fort?”");
+            fort = true;
+            enableneighbor = true;
+        
+        }else if (fort&&(LA== "go to fort"||LA=="go fort")){
+            //GO to fort case 
+        }else {
+            global.needsHelp += 1;
+            if(global.needsHelp == 5 ){
+                if(!fort){
+                    ds_list_add(global.log, "Maybe I should head towards the neighbour's house");
+                } else {
+                    ds_list_add(global.log, "Do I go to the fort or the neighbour's house?");
+                }
             }
         }
         break;
