@@ -79,6 +79,15 @@
       <script>scripts\ch2Part1.gml</script>
       <script>scripts\ch2Background.gml</script>
     </scripts>
+    <scripts name="There’s Something Strange About Michael ">
+      <script>scripts\ch2Intro.gml</script>
+      <script>scripts\InitCh2Pt1.gml</script>
+      <script>scripts\Ch2Pt1.gml</script>
+      <script>scripts\InitCh2Pt2.gml</script>
+      <script>scripts\Ch2Pt2.gml</script>
+      <script>scripts\Ch2Outro.gml</script>
+      <script>scripts\ch2BGPlaceHolder.gml</script>
+    </scripts>
     <scripts name="General">
       <scripts name="Textbox">
         <script>scripts\initTextbox.gml</script>
@@ -113,15 +122,6 @@
       </scripts>
       <script>scripts\globalInit.gml</script>
       <script>scripts\evidenceList.gml</script>
-    </scripts>
-    <scripts name="There’s Something Strange About Michael ">
-      <script>scripts\ch2Intro.gml</script>
-      <script>scripts\InitCh2Pt1.gml</script>
-      <script>scripts\Ch2Pt1.gml</script>
-      <script>scripts\InitCh2Pt2.gml</script>
-      <script>scripts\Ch2Pt2.gml</script>
-      <script>scripts\Ch2Outro.gml</script>
-      <script>scripts\ch2BGPlaceHolder.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
