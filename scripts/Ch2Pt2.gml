@@ -143,10 +143,12 @@ switch(global.state){
                 ds_list_add(global.log, "The fort stands in your path. You hear a coyote, you better get inside.");
             } else {
                 ds_list_add(global.log, "The fort is mostly empty, except for a small mattress in the corner, and the light switch to your right. Madeline is on the mattress.");
+            }
         }else if(!inFort&&(LA == "enter fort" || LA == "go into fort"|| LA == "go in fort" || LA == "go to fort" || LA == "go fort")){
             ds_list_add(global.log, "You and Madeline enter the Fort. It is cold and quiet. You can hear Madeline softly crying.");
-        }else if (inFort&&(LA == "sit on mattress" || LA == "hug madeline" || LA == "hug her" || LA == "talk to her" || LA == "walk mattress"|| LA == "walk to mattress"|| LA == "talk to madeline"|| LA == "talk madeline"|| LA == "ask about crying"|| LA == "hold her"|| LA == "hold madeline"){
-            
+        }else if (inFort&&(LA == "sit on mattress" || LA == "hug madeline" || LA == "hug her" || LA == "talk to her" || LA == "walk mattress"|| LA == "walk to mattress"|| LA == "talk to madeline"|| LA == "talk madeline"|| LA == "ask about crying"|| LA == "hold her"|| LA == "hold madeline")){
+            // go to outro!!!!!!!!!!!! idk how
+            break;
         }else {
             global.needsHelp += 1;
             ds_list_add(global.log, "I don't understand your command");

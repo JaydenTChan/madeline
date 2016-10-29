@@ -11,4 +11,4 @@ if (global.cont == 0){
     global.chapter = 2; //Change these to the relevant part/chapter
     global.part = 2;
     global.state = 0;
-    
+}    
