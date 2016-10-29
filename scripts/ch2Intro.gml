@@ -29,7 +29,7 @@ message[8] = "You want to hide behind that excuse so that you can pretend to eve
 message[9] = "That's fine.";
 message[10] = "That's fucking fantastic.";
 message[11] = "But what are you going to do when they ask about how she almost died today?";
-messgae[12] = "That he plays with a goddam trainset?";
+message[12] = "That he plays with a goddam trainset?";
 
 //Panel 4
 message[13] = "He is our son.";
@@ -59,7 +59,7 @@ message_end = 24;           //24 is the last number in our array
 message_draw = "";          //this is what we 'write' out. It's blank right now
 increase = 1;               //the speed at which new characters are added
 characters = 0;             //how many characters have already been drawn
-hold = 0;                   //if we hold 'Z', the text will render faster
+hold = 1;                   //if we hold 'Z', the text will render faster
 nothing = 0;                //Determine if there is still text.
 alpha = 1;                  //Alpha value for drawing background.
 

@@ -17,6 +17,7 @@
       <sprite>sprites\menuSpr</sprite>
       <sprite>sprites\imgSpr</sprite>
       <sprite>sprites\sizeSpr</sprite>
+      <sprite>sprites\madelineSpr</sprite>
     </sprites>
     <sprites name="Chapter 1">
       <sprite>sprites\playerRoomSpr</sprite>
@@ -38,8 +39,22 @@
       <sprite>sprites\darkenScreenSpr</sprite>
       <sprite>sprites\blackSpr</sprite>
     </sprites>
+    <sprites name="Demo">
+      <sprite>sprites\thanksForPlayingSpr</sprite>
+    </sprites>
+    <sprites name="STAM">
+      <sprite>sprites\hallwayDarkSpr</sprite>
+      <sprite>sprites\forestSpr</sprite>
+      <sprite>sprites\forest2Spr</sprite>
+      <sprite>sprites\fortSpr</sprite>
+      <sprite>sprites\neighbourSpr</sprite>
+      <sprite>sprites\sisterRoomDarkSpr</sprite>
+      <sprite>sprites\playerRoomDarkSpr</sprite>
+    </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\How_To_Make_a_New_Chapter.gml</script>
@@ -88,17 +103,25 @@
         <script>scripts\saveGame.gml</script>
         <script>scripts\loadGame.gml</script>
         <script>scripts\continueGame.gml</script>
+        <script>scripts\checkAction.gml</script>
+        <script>scripts\checkInventory.gml</script>
+        <script>scripts\addAction.gml</script>
+        <script>scripts\addInventory.gml</script>
+        <script>scripts\removeAction.gml</script>
+        <script>scripts\removeInventory.gml</script>
+        <script>scripts\msg.gml</script>
       </scripts>
       <script>scripts\globalInit.gml</script>
       <script>scripts\evidenceList.gml</script>
     </scripts>
     <scripts name="There’s Something Strange About Michael ">
       <script>scripts\ch2Intro.gml</script>
-      <script>scripts\Ch2Pt1.gml</script>
       <script>scripts\InitCh2Pt1.gml</script>
+      <script>scripts\Ch2Pt1.gml</script>
       <script>scripts\InitCh2Pt2.gml</script>
       <script>scripts\Ch2Pt2.gml</script>
       <script>scripts\Ch2Outro.gml</script>
+      <script>scripts\ch2BGPlaceHolder.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -123,6 +146,8 @@
       <object>objects\imgObj</object>
       <object>objects\sizeObj</object>
       <object>objects\menuObj</object>
+      <object>objects\madelineObj</object>
+      <object>objects\thanksForPlayingObj</object>
     </objects>
     <objects name="Functional">
       <object>objects\globalInitObj</object>
@@ -137,15 +162,17 @@
       <object>objects\evidenceBackObj</object>
     </objects>
     <objects name="Something Strange About Michael">
-      <object>objects\STAMPart2Obj</object>
+      <object>objects\STAMIntroObj</object>
       <object>objects\STAMPart1Obj</object>
+      <object>objects\STAMPart2Obj</object>
+      <object>objects\STAMOutroObj</object>
+      <object>objects\STAMBackgroundObj</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\Title</room>
-    <room>rooms\chapter1Rm</room>
     <room>rooms\Something_strange_about_Michael</room>
-    <room>rooms\chapter2Rm</room>
+    <room>rooms\STAMOutroRm</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

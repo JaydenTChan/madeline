@@ -41,119 +41,121 @@ States:
 */
 
 LA = string_lower(global.lastAction);
-question = false;
-neigbours = false;
-fort = false;
-straightPath = false;
-leftPath = false;
-inFort = false;
 
 switch(global.state){
     case 0: //INPUT 1
         if(LA == "look around"||LA == "look"){
-            ds_list_add(global.log, "It is the middle of the night.");
-            ds_list_add(global.log, "The only thing you can see is the neighbour’s house.");
-        }else if(LA == "go neightbour's house" || LA == "go to neightbour's house " || LA == "go to neightbours house"){
-            if(question){
-                ds_list_add(global.log, "You approach the neighbours house, they see you through the window and close the blinds.");
-                ds_list_add(global.log, "You know this feelings, its been with you since forever. Your sister tugs at you again.");
-                ds_list_add(global.log, "“Come on, lets go to the fort.” You turn away from the house, smile as best as you can towards your little sister and face the direction of the fort.")
-                neighbours = true;
+            msg( "It is the middle of the night.");
+            msg( "The only thing you can see is the neighbour’s house.");
+        }else if(LA == "go neighbour's house"||LA == "go to neighbour's house" || LA == "go to neighbours house"){
+            if(checkAction("question")){
+                msg( "You approach the neighbours house, they see you through the window and close the blinds.");
+                msg( "You know thrdr feelings, its been with you since forever. Your sister tugs at you again.");
+                msg( "“Come on, lets go to the fort.”");
+                msg( "You turn away from the house, smile as best as you can towards your little sister and face the direction of the fort.");
+                addAction("neighbours");
             } else {
-                ds_list_add(global.log, "You’re moving towards your neighbours house when you feel a sharp tug on your shirt.");
-                ds_list_add(global.log, "“We can’t go there Mikey.”");
+                msg( "You’re moving towards your neighbours house when you feel a sharp tug on your shirt.");
+                msg( "“We can’t go there Mikey.”");
                 //"not good people" is suppose to be in red
-                ds_list_add(global.log, "They’re [c=255]not good people.[/c].");
-                question = true;
+                msg( "They’re [c=255]not good people.[/c].");
+                addAction("question");
             }  
-        }else if(question&&(LA== "ask not good people"||LA=="ask about not good people")){
-            ds_list_add(global.log, "“They told us that we weren’t their problem.“");
-            ds_list_add(global.log, "“Can we go to the fort?”");
-            fort = true;
-        }else if(neighbours && (LA == "Ring doorbell" || LA == "ring doorbell" || LA == "ring door bell" || LA=="knock" || LA=="ring neighbours doorbell" )) {
-            ds_list_add(global.log, "As you turn to go back and try one more time, you catch a glimpse of your sister. She looks at you sternly “No.”");
-            ds_list_add(global.log, "Even if you are older, there's some things you just can't ignore. You decide against it.")
-        }else if (fort&&(LA== "go to fort"||LA=="go fort")){
-            ds_list_add(global.log, "You follow Madeline to the forest behind your house. You can hear screaming coming from your house. ");
-            ds_list_add(global.log,"“It’s too dark Mikey. I can’t see where it is. I think if we go straight...”");
+        }else if(checkAction("question")==true&&(LA== "ask not good people"||LA=="ask about not good people")){
+            msg( "“They told us that we weren’t their problem.“");
+            msg( "“Can we go to the fort?”");
+            addAction("fort");
+        }else if(checkAction("neighbours")==true && (LA == "Ring doorbell" || LA == "ring doorbell" || LA == "ring door bell" || LA=="knock" || LA=="ring neighbours doorbell" )) {
+            msg( "As you turn to go back and try one more time, you catch a glimpse of your sister. She looks at you sternly “No.”");
+            msg( "Even if you are older, there's some things you just can't ignore. You decide against it.")
+        }else if (checkAction("fort")==true&&(LA== "go to fort"||LA=="go fort")){
+            msg( "You follow Madeline to the forest behind your house. You can hear screaming coming from your house. ");
+            msg("“It’s too dark Mikey. I can’t see where it is. I think if we go straight...”");
             global.needsHelp = 0;
             global.state = 1;
         }else {
             global.needsHelp += 1;
-            ds_list_add(global.log, "I don't understand your command");
+            msg( "I don't understand your command");
             if(global.needsHelp == 5 ){
-                if(!fort){
-                    ds_list_add(global.log, "Maybe I should head towards the neighbour's house");
+                if(checkAction("fort")==false){
+                    msg( "Maybe I should head towards the neighbour's house");
                 } else {
-                    ds_list_add(global.log, "Do I go to the fort or the neighbour's house?");
+                    msg( "Do I go to the fort or the neighbour's house?");
                 }
             }
         }
         break;
     case 1:
         if(LA == "look around"||LA == "look"){
-            ds_list_add(global.log, "You can go straight, left or right.");
+            msg( "You can go straight, left or right.");
         }else if(LA == "go straight" || LA == "walk straight"|| LA == "run straight"){
-            if (!straightPath) {
-                ds_list_add(global.log, "You run straight into a tree. As you lie on the ground recovering, you hear a quiet “I’m sorry. I thought it was...” from behind you.");
+            if (checkAction("straightPath")==false) {
+                msg("You run straight into a tree. As you lie on the ground recovering, you hear a quiet “I’m sorry.");
+                msg("I thought it was...” from behind you.");
+                addAction("straightPath");
             } else {
-                ds_list_add(global.log, "You might be dumb, but not that dumb. You remember there's a tree in the way.");
+                msg( "You might be dumb, but not that dumb. You remember there's a tree in the way.");
             }
         }else if (LA == "go left" || LA == "walk left" || LA == "run left"){
-            ds_list_add(global.log, "You and Madeline are in the middle of the forest. You can hear someone else's footsteps coming from the house. You’re almost there.");
-            ds_list_add(global.log, "“I think if we go left here…”");
+            msg( "You and Madeline are in the middle of the forest. You can hear someone else's footsteps coming from the house.");
+            msg("You’re almost there.");
+            msg( "“I think if we go left here…”");
             global.needsHelp = 0;
             global.state = 2;
         }else if(LA == "go right" || LA == "walk right"|| LA == "run right") {
-            ds_list_add(global.log, "There is a large sign that says “No.”. It’s haunting allure permits you to obey. ");
+            msg( "There is a large sign that says “No.”. It’s haunting allure permits you to obey. ");
         }else {
             global.needsHelp += 1;
-            ds_list_add(global.log, "I don't understand your command");
+            msg( "I don't understand your command");
             if(global.needsHelp == 5 ){
-                ds_list_add(global.log, "I should really get to the fort. It's chilly and scary out here.");
+                msg( "I should really get to the fort. It's chilly and scary out here.");
             }
         }
         break;
     case 2:
         if(LA == "look around"||LA == "look"){
-            ds_list_add(global.log, "You can go straight, left or right.");
+            msg( "You can go straight, left or right.");
         }else if(LA == "go straight" || LA == "walk straight"|| LA == "run straight"){
-            ds_list_add(global.log, "You and Madeline have arrived at the Fort. The footsteps and the shouting are far away.");
+            msg( "You and Madeline have arrived at the Fort. The footsteps and the shouting are far away.");
             global.needsHelp = 0;
             global.state = 3;
         }else if (LA == "go left" || LA == "walk left"|| LA == "run left"){
-            if (!leftPath) {
-                ds_list_add(global.log, "You run into a large thorny bush. As you painfully drag yourself out, you hear a quiet “I’m sorry. I swear - I was sure...“");
+            if (checkAction("leftPath")==false) {
+                msg( "You run into a large thorny bush. As you painfully drag yourself out, you hear a quiet “I’m sorry. I swear - I was sure...“");
+                addAction("leftPath");
             } else {
-                ds_list_add(global.log, "You might be dumb, but not that dumb. You remember there's a large thorny trap that way.");
+                msg( "You might be dumb, but not that dumb. You remember there's a large thorny trap that way.");
             }
         }else if(LA == "go right" || LA == "walk right"|| LA == "run right") {
-            ds_list_add(global.log, "You can see a figure in the distance coming from that direction. You quietly turn back. ");
+            msg( "You can see a figure in the distance coming from that direction. You quietly turn back. ");
         }else {
             global.needsHelp += 1;
-            ds_list_add(global.log, "I don't understand your command");
+            msg( "I don't understand your command");
             if(global.needsHelp == 5 ){
-                ds_list_add(global.log, "I should really get to the fort. It's chilly and scary out here.");
+                msg( "I should really get to the fort. It's chilly and scary out here.");
             }
         }
         break;
     case 3:
         if(LA == "look around"||LA == "look"){
-            if(!inFort) {
-                ds_list_add(global.log, "The fort stands in your path. You hear a coyote, you better get inside.");
+            if(checkAction("inFort")==false) {
+                msg( "The fort stands in your path. You hear a coyote, you better get inside.");
             } else {
-                ds_list_add(global.log, "The fort is mostly empty, except for a small mattress in the corner, and the light switch to your right. Madeline is on the mattress.");
+                msg( "The fort is mostly empty, except for a small mattress in the corner, ");
+                msg( "and the light switch to your right. Madeline is on the mattress.");
             }
-        }else if(!inFort&&(LA == "enter fort" || LA == "go into fort"|| LA == "go in fort" || LA == "go to fort" || LA == "go fort")){
-            ds_list_add(global.log, "You and Madeline enter the Fort. It is cold and quiet. You can hear Madeline softly crying.");
-        }else if (inFort&&(LA == "sit on mattress" || LA == "hug madeline" || LA == "hug her" || LA == "talk to her" || LA == "walk mattress"|| LA == "walk to mattress"|| LA == "talk to madeline"|| LA == "talk madeline"|| LA == "ask about crying"|| LA == "hold her"|| LA == "hold madeline")){
+        }else if(checkAction("inFort")==false&&(LA == "enter fort" || LA == "go into fort"|| LA == "go in fort" || LA == "go to fort" || LA == "go fort")){
+            msg( "You and Madeline enter the Fort. It is cold and quiet. You can hear Madeline softly crying.");
+            addAction("inFort");
+        }else if (checkAction("inFort")&&(LA == "sit on mattress" || LA == "hug madeline" || LA == "hug her" || LA == "talk to her" || LA == "walk mattress"|| LA == "walk to mattress"|| LA == "talk to madeline"|| LA == "talk madeline"|| LA == "ask about crying"|| LA == "hold her"|| LA == "hold madeline")){
             // go to outro!!!!!!!!!!!! idk how
+            instance_create(x,y,transitionNextObj);
             break;
         }else {
             global.needsHelp += 1;
-            ds_list_add(global.log, "I don't understand your command");
+            msg( "I don't understand your command");
             if(global.needsHelp == 5 ){
-                ds_list_add(global.log, "I should go see why Madeline is crying.");
+                msg( "I should go see why Madeline is crying.");
             }
         }
         break;

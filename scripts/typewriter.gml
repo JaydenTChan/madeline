@@ -1,6 +1,6 @@
 //Source: http://gamejolt.com/f/game-maker-super-easy-typewriter-like-dialogue-example/1908
 if (characters < message_length) {              //if current character count is less than the amount in current message* 
-    hold = keyboard_check(ord("Z"));            //hold is true or false if we hold 'Z' or not
+    hold = mouse_check_button_pressed(2);            //hold is true or false if we hold 'Z' or not
     characters += increase * (1 + hold);        //increase speed based on hold
     message_draw = string_copy(message[message_current], 0, characters); //copy string to current character
 } 
