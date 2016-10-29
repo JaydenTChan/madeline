@@ -68,7 +68,6 @@ switch(global.state){
             ds_list_add(global.log, "You close the open door.");
             ds_list_add(global.log, "A sense of relief washes over you. Then a chill runs down your spine, you hear the footsteps.");
             door = false;
-        }
         }else if(door&&(LA=="leave room"||LA=="go to hallway"||LA=="go hallway")){
             ds_list_add(global.log, "You walk out into the dark hallway.");
             ds_list_add(global.log, "You are now at one end of the hallway, but it is too dark to see.");
@@ -140,12 +139,11 @@ switch(global.state){
             ds_list_add(global.log, "The light of the house next door is on and you can see that they are awake in their living room.");
             global.needsHelp = 0;
             switchToPart(STAMPart2Obj);
-        } else if(LA == "leave her" || LA == "leave Madeline" || LA == "leave madeline" {
+        } else if(LA == "leave her" || LA == "leave Madeline" || LA == "leave madeline" ){
             ds_list_add(global.log, "You leave, Madeline follows you. You look to protest but she puts up her best puppy eyes.");
-            ds.list_add(global.log, "You are left with no choice, you take her with you.");
+            ds_list_add(global.log, "You are left with no choice, you take her with you.");
             global.needsHelp = 0;
             switchToPart(STAMPart2Obj);
-        }
         }else {
             global.needsHelp += 1;
             ds_list_add(global.log, "I don't understand your command");
