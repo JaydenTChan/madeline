@@ -96,6 +96,9 @@
       <script>scripts\ch2Intro.gml</script>
       <script>scripts\Ch2Pt1.gml</script>
       <script>scripts\InitCh2Pt1.gml</script>
+      <script>scripts\InitCh2Pt2.gml</script>
+      <script>scripts\Ch2Pt2.gml</script>
+      <script>scripts\Ch2Outro.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -103,7 +106,6 @@
   </fonts>
   <objects name="objects">
     <objects name="Chapter1">
-      <object>objects\chapter1IntroObj</object>
       <object>objects\chapter1Part1Obj</object>
       <object>objects\chapter1Part2Obj</object>
       <object>objects\chapter1BackgroundObj</object>
@@ -134,11 +136,15 @@
       <object>objects\textBoxObj</object>
       <object>objects\evidenceBackObj</object>
     </objects>
+    <objects name="Something Strange About Michael">
+      <object>objects\STAMPart2Obj</object>
+      <object>objects\STAMPart1Obj</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\Title</room>
     <room>rooms\chapter1Rm</room>
-    <room>rooms\room3</room>
+    <room>rooms\Something_strange_about_Michael</room>
     <room>rooms\chapter2Rm</room>
   </rooms>
   <help>
