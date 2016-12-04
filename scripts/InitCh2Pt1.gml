@@ -25,9 +25,8 @@ if (global.cont == 0){
     ds_list_add(global.log, "[c="+string($00FFFF)+"]This is your message log.[/c]");
     ds_list_add(global.log, "[c="+string($00FFFF)+"]You may use the arrow keys or mouse wheel to scroll.[/c]");
     ds_list_add(global.log, "[c="+string($00FFFF)+"]Use IMG to toggle off background images.[/c]");
-    ds_list_add(global.log, "[c="+string($00FFFF)+"]Welcome to the demo! Basic commands are “open [obj], look around / look, ask about [specific event] ");
-    ds_list_add(global.log, "/ ask [specific event (red text)] , go to [location] / go [location], leave room / leave, close [obj]”[/c]") 
-    ds_list_add(global.log, "Enjoy!") 
+    ds_list_add(global.log, "[c="+string($00FFFF)+"]Basic commands are “open [obj], look around / look, ask about [specific event] ");
+    ds_list_add(global.log, "/ ask [specific event (red text)] , go to [location] / go [location], leave room / leave, close [obj]”[/c]")  
     
     ds_list_add(global.log, "You are in your room.");
     ds_list_add(global.log, "A light from across the street peers through the window - the neighbours might still be awake.");

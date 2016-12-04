@@ -50,7 +50,7 @@ switch(global.state){
         }else if(LA == "go neighbour's house"||LA == "go to neighbour's house" || LA == "go to neighbours house"){
             if(checkAction("question")){
                 msg( "You approach the neighbours house, they see you through the window and close the blinds.");
-                msg( "You know thrdr feelings, its been with you since forever. Your sister tugs at you again.");
+                msg( "You know that feeling, its been with you for as long as you can remember. Your sister tugs at you again.");
                 msg( "“Come on, lets go to the fort.”");
                 msg( "You turn away from the house, smile as best as you can towards your little sister and face the direction of the fort.");
                 addAction("neighbours");
@@ -142,15 +142,23 @@ switch(global.state){
                 msg( "The fort stands in your path. You hear a coyote, you better get inside.");
             } else {
                 msg( "The fort is mostly empty, except for a small mattress in the corner, ");
-                msg( "and the light switch to your right. Madeline is on the mattress.");
+                msg( "the light switch to your right, and the old tv with the DVD player on the left. ");
+                msg( "A poster hangs behind the mattress. Madeline is on the mattress, crying.");
             }
         }else if(checkAction("inFort")==false&&(LA == "enter fort" || LA == "go into fort"|| LA == "go in fort" || LA == "go to fort" || LA == "go fort")){
             msg( "You and Madeline enter the Fort. It is cold and quiet. You can hear Madeline softly crying.");
             addAction("inFort");
-        }else if (checkAction("inFort")&&(LA == "sit on mattress" || LA == "hug madeline" || LA == "hug her" || LA == "talk to her" || LA == "walk mattress"|| LA == "walk to mattress"|| LA == "talk to madeline"|| LA == "talk madeline"|| LA == "ask about crying"|| LA == "hold her"|| LA == "hold madeline")){
+        }else if (checkAction("inFort")== true &&(LA == "sit on mattress" || LA == "hug madeline" || LA == "hug her" || LA == "talk to her" || LA == "walk mattress"|| LA == "walk to mattress"|| LA == "talk to madeline"|| LA == "talk madeline"|| LA == "ask about crying"|| LA == "hold her"|| LA == "hold madeline")){
             // go to outro!!!!!!!!!!!! idk how
             instance_create(x,y,transitionNextObj);
             break;
+        }else if (checkAction("inFort") == true && (LA == "turn on light switch" || LA == "turn on light" || LA == "switch light on" || LA == "switch light" )){
+            msg("The light flickers on, you can see the fort better. You now notice a calendar hanging in the corner");
+            msg("Most of it is faded, but you can make out the words Play and oy but nothing else");
+        
+        } else if( checkAction("inFort") == true && (LA == "turn on tv" || LA == "turn on television" || LA == "switch tv on" || LA == "switch television" )){    
+            msg("You try to turn on the television. But it does not appear to turn on.");
+            msg("However there is a small buzzing sound coming from it");
         }else {
             global.needsHelp += 1;
             msg( "I don't understand your command");

@@ -149,6 +149,12 @@ switch(global.state){
             }
         }
         break;
+        
+    /** Jayden
+    Summary Panel: You obtained “Fearful”
+    Fearful - Your sister has disclosed to you that someone is trying to hurt her. +2 Mom & Dad
+    **/
+
 }
 
 

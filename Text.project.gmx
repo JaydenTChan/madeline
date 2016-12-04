@@ -65,7 +65,7 @@
       <script>scripts\chPart2.gml</script>
       <script>scripts\chBackground.gml</script>
     </scripts>
-    <scripts name="Chapter1">
+    <scripts name="Chapter1(Example)">
       <script>scripts\ch1Introduction.gml</script>
       <script>scripts\initCh1Part1.gml</script>
       <script>scripts\ch1Part1.gml</script>
@@ -73,13 +73,13 @@
       <script>scripts\ch1Part2.gml</script>
       <script>scripts\ch1Background.gml</script>
     </scripts>
-    <scripts name="Chapter2">
+    <scripts name="Chapter2(Example)">
       <script>scripts\ch2Introduction.gml</script>
       <script>scripts\initCh2Part1.gml</script>
       <script>scripts\ch2Part1.gml</script>
       <script>scripts\ch2Background.gml</script>
     </scripts>
-    <scripts name="There’s Something Strange About Michael ">
+    <scripts name="Chapter 2">
       <script>scripts\ch2Intro.gml</script>
       <script>scripts\InitCh2Pt1.gml</script>
       <script>scripts\Ch2Pt1.gml</script>
@@ -122,6 +122,14 @@
       </scripts>
       <script>scripts\globalInit.gml</script>
       <script>scripts\evidenceList.gml</script>
+    </scripts>
+    <scripts name="Chapter 1 Part 2">
+      <script>scripts\Ch1P2Intro.gml</script>
+      <script>scripts\Ch1P2_Pt1.gml</script>
+    </scripts>
+    <scripts name="Chapter 3">
+      <script>scripts\Ch3P1Intro.gml</script>
+      <script>scripts\Ch3P1_Pt1.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
