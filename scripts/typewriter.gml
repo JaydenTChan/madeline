@@ -5,7 +5,7 @@ if (characters < message_length) {              //if current character count is 
     message_draw = string_copy(message[message_current], 0, characters); //copy string to current character
 } 
 else { //if current character is more than the amount in the current message
-    if (mouse_check_button_pressed(1)) {        //if we press mouse 1
+    if (mouse_check_button_pressed(1) || keyboard_check(vk_enter)) {        //if we press mouse 1
         if (message_current < message_end) {    //if there are more messages left to show (0 -> 6, in our case)
             message_current += 1;               //increase the message by 1
             message_length = string_length(message[message_current]);  //get the new character length for message

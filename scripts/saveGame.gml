@@ -15,6 +15,8 @@ str = ds_list_write(global.evidence);
 ini_write_string("Inventory", "evidence", str);
 str = ds_list_write(global.actions);
 ini_write_string("Inventory", "actions", str);
+str = ds_list_write(global.questions);
+ini_write_string("Inventory", "questions", str);
 
 // Save Log
 str = ds_list_write(global.log);

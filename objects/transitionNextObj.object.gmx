@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alph += 0.05;
+            <string>alph += 0.02;
 if (alph == 1){
     room_goto_next();
 }

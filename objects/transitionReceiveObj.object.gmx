@@ -53,7 +53,7 @@ if (global.cont == 0){
           <argument>
             <kind>1</kind>
             <string>if (global.cont == 1){
-    alph -= 0.05;
+    alph -= 0.02;
     if (alph == 0){
         global.cont = 0;
         instance_destroy();

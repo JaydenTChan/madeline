@@ -6,6 +6,14 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\isolationSnd</sound>
+    <sound>sound\lostSnd</sound>
+    <sound>sound\melancholySnd</sound>
+    <sound>sound\lastLeafSnd</sound>
+    <sound>sound\nymeriaSnd</sound>
+    <sound>sound\rememberSnd</sound>
+    <sound>sound\abusedSnd</sound>
+    <sound>sound\goodbyeSnd</sound>
+    <sound>sound\foreverSnd</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Menu">
@@ -37,10 +45,13 @@
       <sprite>sprites\messageLogSpr</sprite>
       <sprite>sprites\messageLogBigSpr</sprite>
       <sprite>sprites\darkenScreenSpr</sprite>
+      <sprite>sprites\darkScreenChoiceSpr</sprite>
       <sprite>sprites\blackSpr</sprite>
     </sprites>
     <sprites name="Demo">
       <sprite>sprites\thanksForPlayingSpr</sprite>
+      <sprite>sprites\demoSpr</sprite>
+      <sprite>sprites\demoTitleSpr</sprite>
     </sprites>
     <sprites name="STAM">
       <sprite>sprites\hallwayDarkSpr</sprite>
@@ -79,15 +90,6 @@
       <script>scripts\ch2Part1.gml</script>
       <script>scripts\ch2Background.gml</script>
     </scripts>
-    <scripts name="Chapter 2">
-      <script>scripts\ch2Intro.gml</script>
-      <script>scripts\InitCh2Pt1.gml</script>
-      <script>scripts\Ch2Pt1.gml</script>
-      <script>scripts\InitCh2Pt2.gml</script>
-      <script>scripts\Ch2Pt2.gml</script>
-      <script>scripts\Ch2Outro.gml</script>
-      <script>scripts\ch2BGPlaceHolder.gml</script>
-    </scripts>
     <scripts name="General">
       <scripts name="Textbox">
         <script>scripts\initTextbox.gml</script>
@@ -109,6 +111,7 @@
         <script>scripts\draw_text_colortags.gml</script>
         <script>scripts\switchToPart.gml</script>
         <script>scripts\evidencePicker.gml</script>
+        <script>scripts\choicePicker.gml</script>
         <script>scripts\saveGame.gml</script>
         <script>scripts\loadGame.gml</script>
         <script>scripts\continueGame.gml</script>
@@ -119,29 +122,68 @@
         <script>scripts\removeAction.gml</script>
         <script>scripts\removeInventory.gml</script>
         <script>scripts\msg.gml</script>
+        <script>scripts\addEvidence.gml</script>
+        <script>scripts\checkEvidence.gml</script>
+        <script>scripts\removeEvidence.gml</script>
       </scripts>
       <script>scripts\globalInit.gml</script>
       <script>scripts\evidenceList.gml</script>
     </scripts>
+    <scripts name="Introduction">
+      <script>scripts\IntroductionInit.gml</script>
+      <script>scripts\IntroductionSpt.gml</script>
+      <script>scripts\Introduction.gml</script>
+      <script>scripts\IntroductionOutro.gml</script>
+      <script>scripts\IntroductionOutro2.gml</script>
+    </scripts>
     <scripts name="Chapter 1 Part 2">
+      <script>scripts\Ch1Init.gml</script>
       <script>scripts\Ch1P2Intro.gml</script>
+      <script>scripts\Ch1P22Intro.gml</script>
+      <script>scripts\Ch1P23Intro.gml</script>
       <script>scripts\Ch1P2_Pt1.gml</script>
+      <script>scripts\Ch1P2Outro.gml</script>
+    </scripts>
+    <scripts name="Chapter 2">
+      <script>scripts\InitCh2Pt1.gml</script>
+      <script>scripts\ch2Intro.gml</script>
+      <script>scripts\Ch2Pt1.gml</script>
+      <script>scripts\InitCh2Pt2.gml</script>
+      <script>scripts\Ch2Pt2.gml</script>
+      <script>scripts\Ch2Outro.gml</script>
+      <script>scripts\ch2BGPlaceHolder.gml</script>
     </scripts>
     <scripts name="Chapter 3">
-      <script>scripts\Ch3P1Intro.gml</script>
-      <script>scripts\Ch3P1_Pt1.gml</script>
+      <script>scripts\InitCh3.gml</script>
+      <script>scripts\Ch3Intro.gml</script>
+      <script>scripts\Ch3P1.gml</script>
+      <script>scripts\ch3Background.gml</script>
+    </scripts>
+    <scripts name="Chapter 4">
+      <script>scripts\Ch4Init.gml</script>
+      <script>scripts\Ch4Intro.gml</script>
+      <script>scripts\Ch4P1.gml</script>
+      <script>scripts\Ch4Outro1.gml</script>
+      <script>scripts\Ch4Outro2.gml</script>
+    </scripts>
+    <scripts name="Chapter 5">
+      <script>scripts\Ch5Init.gml</script>
+      <script>scripts\Ch5Intro.gml</script>
+      <script>scripts\Ch5P1.gml</script>
+      <script>scripts\Ch5Outro.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\centFont</font>
+    <font>fonts\centLargeFont</font>
   </fonts>
   <objects name="objects">
-    <objects name="Chapter1">
+    <objects name="Chapter1EX">
       <object>objects\chapter1Part1Obj</object>
       <object>objects\chapter1Part2Obj</object>
       <object>objects\chapter1BackgroundObj</object>
     </objects>
-    <objects name="Chapter2">
+    <objects name="Chapter2EX">
       <object>objects\chapter2IntroObj</object>
       <object>objects\chapter2Part1Obj</object>
       <object>objects\chapter2BackgroundObj</object>
@@ -154,8 +196,11 @@
       <object>objects\imgObj</object>
       <object>objects\sizeObj</object>
       <object>objects\menuObj</object>
+      <object>objects\madelineIntroObj</object>
       <object>objects\madelineObj</object>
       <object>objects\thanksForPlayingObj</object>
+      <object>objects\object39</object>
+      <object>objects\object40</object>
     </objects>
     <objects name="Functional">
       <object>objects\globalInitObj</object>
@@ -165,22 +210,69 @@
       <object>objects\transitionNextObj</object>
       <object>objects\messageLogObj</object>
       <object>objects\evidencePickerObj</object>
+      <object>objects\choicePickerObj</object>
       <object>objects\evidenceTextObj</object>
+      <object>objects\choiceTextObj</object>
       <object>objects\textBoxObj</object>
       <object>objects\evidenceBackObj</object>
+      <object>objects\choiceBackObj</object>
     </objects>
-    <objects name="Something Strange About Michael">
+    <objects name="Introduction">
+      <object>objects\IntroductionIntroObj</object>
+      <object>objects\IntroductionObj</object>
+      <object>objects\IntroductionOutroObj</object>
+      <object>objects\IntroductionOutro2Obj</object>
+    </objects>
+    <objects name="Chapter1P1">
+      <object>objects\Ch1Pt2IntroObj</object>
+      <object>objects\Ch1Pt22IntroObj</object>
+      <object>objects\Ch1Pt23IntroObj</object>
+      <object>objects\Ch1Pt2Obj</object>
+      <object>objects\Ch1Pt2OutroObj</object>
+    </objects>
+    <objects name="Chapter2">
       <object>objects\STAMIntroObj</object>
       <object>objects\STAMPart1Obj</object>
       <object>objects\STAMPart2Obj</object>
       <object>objects\STAMOutroObj</object>
       <object>objects\STAMBackgroundObj</object>
     </objects>
+    <objects name="Chapter3">
+      <object>objects\Ch3IntroObj</object>
+      <object>objects\Ch3Obj</object>
+      <object>objects\Ch3OutroObj</object>
+      <object>objects\Ch3BackgroundObj</object>
+    </objects>
+    <objects name="Chapter4">
+      <object>objects\Ch4IntroObj</object>
+      <object>objects\Ch4Obj</object>
+      <object>objects\Ch4OutroObj</object>
+      <object>objects\Ch4Outro2Obj</object>
+    </objects>
+    <objects name="Chapter5">
+      <object>objects\Ch5IntroObj</object>
+      <object>objects\Ch5Obj</object>
+      <object>objects\Ch5OutroObj</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\Title</room>
+    <room>rooms\IntroductionRm</room>
+    <room>rooms\IntroductionOutroRm</room>
+    <room>rooms\IntroductionOutro2Rm</room>
+    <room>rooms\Chapter1Pt2Rm</room>
+    <room>rooms\Chapter1Pt22Rm</room>
+    <room>rooms\Chapter1Part2Rm</room>
+    <room>rooms\Ch1Pt2OutroRM</room>
     <room>rooms\Something_strange_about_Michael</room>
     <room>rooms\STAMOutroRm</room>
+    <room>rooms\Chapter3Rm</room>
+    <room>rooms\Chapter3OutroRm</room>
+    <room>rooms\Chapter4Rm</room>
+    <room>rooms\Chapter4OutroRm</room>
+    <room>rooms\Chapter4Outro2Rm</room>
+    <room>rooms\Chapter5Rm</room>
+    <room>rooms\Chapter5OutroRm</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

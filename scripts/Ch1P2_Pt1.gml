@@ -36,50 +36,38 @@ LA = string_lower(global.lastAction);
 
 
 switch(global.state){
-    case 0: //INPUT 1
-        msg( "You hear the terrored cries of your mother hurriedly searching for your father.");
-        msg( chr(34) + "Michael!" + chr(34));
-        msg( chr(34) + "What have you done Michael - Oh God! Mark! Mark!" + chr(34));
-        msg( "There's something large in your hand.");
-        msg( "It was... it was..... slippery, you just remember the peculiar wetness");
-        msg( "But what is scarred into your memory is...");
-        msg( "My little sister Madeline. Moonlight pale skin.");
-        msg( "Blue lips. Motionless. ");
-        global.state = 1;
-        break;
-    case 1:
-        msg( "The loudening sound of running and screaming startled you");
-        msg( "You look at the object and wonder if you should get rid of it or keep it.");
-        global.state = 2;
-        break;
-    case 2:
+    case 0:
         if(LA == "look around"||LA == "look"){
-            msg("Your sisters still lays before you, you dare not take another look or a step closer.")
-            msg("Other than that you can't see much.");
+            msg("You should probably either [c=255]keep the object[/c] or [c=255]hide it.[/c]")
         }else if(LA == "get rid of object" || LA == "get rid" || LA == "get rid object" || LA == "throw object" || LA == "throw" || LA == "throw the object" || LA == "rid" || LA == "throw it" || LA == "get rid of it"){
             msg( "You throw the object as hard as you can into the darkness.");
             msg( "Quickly you peek back to make sure no one saw you.");
-            global.state = 3;
+            msg("Michael! Goddamnit Michael - what the hell have you done you monster! ");
+            msg("Mark! Put him down Mark you’re hurting him! ");
+            msg( "[c="+string($00FFFF)+"]Press Enter to Continue[/c]");
+            global.state = 1;
             break;
         }else if(LA == "keep the object" || LA == "keep object" || LA == "keep" || LA == "put object in pocket" || LA == "keep it" || LA == "pocket it" || LA == "hide it" || LA == "hide object" || LA == "keep"){
-            msg("You quickly hide the object. You don't remember exactly where");
-            msg("But they didn't know I found it.");
-            global.state = 3;
+            msg("You quickly pocket the object. You don't remember exactly where but they don't know I found it.");
+            msg("Michael! Goddamnit Michael - what the hell have you done you monster! ");
+            msg("Mark! Put him down Mark you’re hurting him! ");
+            addEvidence("Mysterious Object");
+            msg( "[c="+string($00FFFF)+"]Press Enter to Continue[/c]");
+            global.state = 1;
             break;
         }else {
             global.needsHelp += 1;
             msg( "I don't understand your command");
             if(global.needsHelp == 5){
                 msg( "The shouting seems to get louder.");
-                msg( "You should either hide or get rid of the object");
+                msg( "You should either [c=255]hide[/c] or [c=255]get rid[/c] of the object");
                 global.needsHelp = 0;
             }
+            break;
         }
-    case 3:
-        msg(chr(34) + "Micheal what are you looking ...." + chr(34));
-        msg("...");
-        msg(chr(34) + "Oh my ...  What ... fuck Micheal! how .... you" + chr(34));
-        msg(chr(34) + "Mark! Let him .. He's barely conscious ... Stop ..." + chr(34));
+    case 1:
+        instance_create(x,y,transitionNextObj);
+        break;
         
         /** JAYDEN senpai
          Summary Panel: 

@@ -15,6 +15,8 @@ str = ini_read_string("Inventory", "evidence", "");
 if (str != ""){ ds_list_read(global.evidence, str);}
 str = ini_read_string("Inventory", "actions", "");
 if (str != ""){ ds_list_read(global.actions, str);}
+str = ini_read_string("Inventory", "questions", "");
+if (str != ""){ ds_list_read(global.questions, str);}
 
 //Read Log
 str = ini_read_string("Log", "log", "");

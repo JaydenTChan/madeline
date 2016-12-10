@@ -13,6 +13,14 @@ global.log = ds_list_create();
 global.inventory = ds_list_create();
 global.evidence = ds_list_create();
 global.actions = ds_list_create();
+global.questions = ds_list_create();
+
+ds_list_add(global.questions, 0); //0
+ds_list_add(global.questions, 0); //1
+ds_list_add(global.questions, 0); //2
+ds_list_add(global.questions, 0); //3
+ds_list_add(global.questions, 0); //Pos 4 for questions asked
+
 
 
 
